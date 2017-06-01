@@ -31,9 +31,6 @@ class SudokuGame
     pos
   end
 
-  def parse_pos(string)
-    [string[0].to_i, string[-1].to_i]
-  end
 
   def get_val
     val = nil
@@ -45,8 +42,15 @@ class SudokuGame
     val
   end
 
-  def parse_val(string)
-    string.to_i
+  def parse_pos(str)
+    if str.length == 3 && str[1] == ","
+      [str[0].to_i,str[-1].to_i]
+    end
+
+  end
+
+  def parse_val(str)
+    str.to_i
   end
 
   def play_turn
