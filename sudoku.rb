@@ -1,4 +1,5 @@
 require_relative "board"
+require "byebug"
 
 class SudokuGame
   def self.from_file(filename)
@@ -48,8 +49,8 @@ class SudokuGame
 
   def play_turn
     board.render
-    val = get_pos
-    pos = get_val
+    pos = get_pos
+    val = get_val
     board[pos] = val
   end
 
@@ -78,6 +79,7 @@ class SudokuGame
   attr_reader :board
 end
 
-
-game = SudokuGame.from_file("puzzles/sudoku1.txt")
-game.run
+if $PROGRAM_NAME == __FILE__
+  game = SudokuGame.from_file("puzzles/sudoku1-almost.txt")
+  game.run
+end

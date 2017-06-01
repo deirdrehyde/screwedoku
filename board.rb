@@ -23,13 +23,13 @@ class Board
 
   def [](pos)
     x, y = pos
-    grid[x][y]
+    @grid[x][y]
   end
 
   def []=(pos, value)
     x, y = pos
-    tile = grid[x][y]
-    tile.value = value
+    @grid[x][y].value = value
+    #tile.value = value
   end
 
   def columns
@@ -58,7 +58,7 @@ class Board
   end
 
   def solved_set?(tiles)
-    nums = tiles.map(&:value)
+    nums = tiles.map{ |tile| tile.value}
     nums.sort == (1..9).to_a
   end
 
